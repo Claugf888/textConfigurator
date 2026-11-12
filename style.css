@@ -3,84 +3,88 @@
     margin-bottom: 30px;
 }
 
-/* Área pontilhada */
 .area-tracejada {
-    position: relative;
-
     width: 75%;
-    height: 320px;
-
     margin: 0 auto;
-
     border: 2px dashed #9bb7e5;
     border-radius: 12px;
-
     padding: 30px;
+    box-sizing: border-box;
+    min-height: 380px;
+    display: grid;
+    grid-template-columns: minmax(340px, 1fr) 1fr;
+    gap: 30px;
 }
 
-/* Caixa de substituição */
 .substituicao-box {
-    position: absolute;
-
-    top: 55px;
-    left: 30px;
-
-    width: 170px;
-
+    align-self: start;
+    margin-top: 25px;
     padding: 15px;
-
+    box-sizing: border-box;
+    min-width: 0;
     background: #fff;
-
     border: 1px solid #d8d8d8;
     border-radius: 10px;
-
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.substituicao-box h3 {
-    margin: 0 0 15px 0;
+#regrasSubstituicao {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: flex-start;
+    gap: 10px;
+}
 
-    font-size: 18px;
-    font-weight: 600;
+.regra-substituicao {
+    min-width: 0;
+}
 
-    color: #1f2937;
+.regra-substituicao + .regra-substituicao {
+    margin: 0;
+    padding: 0;
 }
 
 .substituicao-box label {
     display: block;
-
-    margin-bottom: 5px;
-    margin-top: 10px;
-
-    font-size: 14px;
+    margin: 5px 0;
+    font-size: 12px;
     font-weight: 600;
 }
 
 .substituicao-box input {
     width: 100%;
-
-    padding: 8px;
-
+    padding: 6px;
     box-sizing: border-box;
-
     border: 1px solid #cfcfcf;
     border-radius: 4px;
 }
 
-/* Mantém o conteúdo principal centralizado */
+.substituicao-box button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 9px;
+    border: 0;
+    border-radius: 6px;
+    background: #eef4ff;
+    color: #174ea6;
+    cursor: pointer;
+}
+
+.substituicao-box .btnRemoverRegra {
+    width: auto;
+    margin-top: 2px;
+    padding: 4px 0;
+    background: transparent;
+    color: #a12622;
+    text-align: left;
+}
+
 .conteudo-central {
-    position: absolute;
-
-    top: 43%;
-    left: 55%;
-
-    transform: translate(-50%, -50%);
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    gap: 25px; /* controla o espaçamento */
+    justify-content: center;
+    gap: 25px;
 }
 
 .conteudo-central label {
@@ -93,20 +97,11 @@
 }
 
 .conteudo-central button {
-    display: block;
-
-    margin: 20px auto;
-
     padding: 12px 25px;
-
     background: #1f6fff;
-
     color: white;
-
     border: none;
-
     border-radius: 8px;
-
     cursor: pointer;
 }
 
@@ -114,9 +109,46 @@
     background: #165edf;
 }
 
+.linha-resultado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.linha-resultado #btnCopiar {
+    padding: 9px 14px;
+    background: #f28c28;
+    border: 0;
+    border-radius: 7px;
+    box-shadow: 0 2px 4px rgba(180, 83, 9, 0.2);
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.linha-resultado #btnCopiar:hover {
+    background: #d97706;
+    box-shadow: 0 3px 7px rgba(180, 83, 9, 0.28);
+    transform: translateY(-1px);
+}
+
+.linha-resultado #btnCopiar:focus-visible {
+    outline: 3px solid rgba(242, 140, 40, 0.35);
+    outline-offset: 2px;
+}
+
 #resultado {
     font-weight: bold;
 }
+
+.status-copia {
+    min-height: 1em;
+    color: #327544;
+    font-size: 14px;
+}
+
 .creditos {
     position: absolute;
     right: 15px;
@@ -128,4 +160,20 @@
     color: #777;
 
     font-style: italic;
+}
+
+@media (max-width: 700px) {
+    .area-tracejada {
+        width: 95%;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .substituicao-box {
+        margin-top: 0;
+    }
+
+    .conteudo-central {
+        padding: 15px 0;
+    }
 }

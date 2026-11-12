@@ -12,33 +12,39 @@
 
   <main class="page">
     <section class="card">
-      <h1 class="title"> Configurador de texto</h1>
+      <h1 class="title">Configurador de texto</h1>
       <div class="area-tracejada">
 
-    <div class="substituicao-box">
-        <h3> </h3>
-
-        <label for="textoSubstituir">Substituir:</label>
-        <input type="text" id="textoSubstituir" placeholder="Ex.: ,">
-
-        <label for="novoTexto">Por:</label>
-        <input type="text" id="novoTexto" placeholder="Ex.: _">
-    </div>
-
-    <div class="conteudo-central">
-        <!-- Seu conteúdo atual -->
-        <label>Texto:</label>
-        <input id="campoPalavra" type="text">
-
-        <button id="btnMostrar">Converter</button>
-
-        <div>
-            Resultado: <span id="resultado">...</span>
+        <div class="substituicao-box">
+          <div id="regrasSubstituicao">
+            <div class="regra-substituicao">
+              <label>
+                Substituir:
+                <input type="text" class="textoSubstituir" placeholder="Ex.: ,">
+              </label>
+              <label>
+                Por:
+                <input type="text" class="novoTexto" placeholder="Ex.: _">
+              </label>
+            </div>
+          </div>
+          <button id="btnAdicionarRegra" type="button">Adicionar substituição</button>
         </div>
-    </div>
 
-</div>
-<p class="creditos">Created by Claudinei Gomes</p>
+        <div class="conteudo-central">
+          <label for="campoPalavra">Texto:</label>
+          <input id="campoPalavra" type="text">
+
+          <button id="btnMostrar" type="button">Converter</button>
+
+          <div class="linha-resultado">
+            <span>Resultado: <span id="resultado">...</span></span>
+            <button id="btnCopiar" type="button">Copiar resultado</button>
+          </div>
+          <span id="statusCopia" class="status-copia" aria-live="polite"></span>
+        </div>
+      </div>
+      <p class="creditos">Created by Claudinei Gomes</p>
     </section>
   </main>
 
